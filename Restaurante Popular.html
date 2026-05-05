@@ -1,252 +1,211 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante popular</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurante popular</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* SECCIONES */
+section {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* IMÁGENES */
+img {
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    background: #ff5722;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* BOTONES */
+button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* FORM */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+}
+
+/* TARJETAS DE RESEÑAS */
+#clientes td {
+    background: #fff3e0;
+    border-radius: 10px;
+}
+
+/* LISTAS */
+ul li {
+    margin: 8px 0;
+}
+
+/* DETAILS */
+details {
+    background: #eee;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+</style>
+
 </head>
+
 <body>
 
-    <header>
-        <h1>Restaurante popular</h1>
-        <p>Comida tradicional, ambiente familiar y sabor que no perdona.</p>
+<header>
+    <h1>🍽️ Restaurante popular</h1>
+    <p>Comida tradicional, ambiente familiar y sabor que no perdona.</p>
 
-        <nav>
-            <a href="#inicio">Inicio</a> |
-            <a href="#historia">Historia</a> |
-            <a href="#menu">Menú</a> |
-            <a href="#semana">Menú de la Semana</a> |
-            <a href="#ubicacion">Ubicación</a> |
-            <a href="#redes">Redes Sociales</a> |
-            <a href="#clientes">Clientes y Reseñas</a> |
-            <a href="#extras">Datos Interesantes</a> |
-            <a href="#pedido">Realizar pedido</a>
-        </nav>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Historia</a>
+        <a href="#menu">Menú</a>
+        <a href="#semana">Semana</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#pedido">Pedido</a>
+    </nav>
+</header>
 
-        <hr>
-    </header>
+<main id="inicio">
 
-    <main id="inicio">
-
-        <section>
-            <h2>Presentación</h2>
-
-            <figure>
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/62/6e/ae/popular.jpg" alt="Foto principal del restaurante" width="300">
-                <figcaption>Vista principal del Restaurante popular.</figcaption>
-            </figure>
-
-            <p>
-                Bienvenidos a <strong>Restaurante popular</strong>, un lugar donde cada plato
-                busca recordar la comida hecha en casa, con ingredientes frescos y atención cercana.
-            </p>
-        </section>
-
-        <hr>
-
-        <section id="historia">
-            <h2>Historia del Restaurante</h2>
-            <p>
-                El restaurante fue fundado en 2018 por la familia Fernández con la idea de ofrecer
-                comida tradicional en un ambiente cómodo y accesible para todos.
-            </p>
-            <p>
-                Desde sus inicios, se ha destacado por sus almuerzos, sopas, platos típicos
-                y atención personalizada.
-            </p>
-
-            <h3>Propietarios</h3>
-            <ul>
-                <li><strong>María Fernández</strong> – Administradora</li>
-                <li><strong>Carlos Fernández</strong> – Chef principal</li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="menu">
-    <h2>Menú de Comida</h2>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Foto</th>
-                <th>Plato</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <img src="https://chipabythedozen.com/wp-content/uploads/2025/09/pique-a-lo-macho.jpg" alt="Pique Macho" width="120">
-                </td>
-                <td>Pique Macho</td>
-                <td>Carne, salchicha, papa frita, cebolla y locoto</td>
-                <td>35 Bs</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://www.cocina-boliviana.com/base/stock/Recipe/majadito-boliviano/majadito-boliviano_web.jpg.webp" alt="Majadito" width="120">
-                </td>
-                <td>Majadito</td>
-                <td>Arroz con charque, huevo y plátano frito</td>
-                <td>25 Bs</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Silpancho_cochalo.jpg" alt="Silpancho" width="120">
-                </td>
-                <td>Silpancho</td>
-                <td>Carne apanada, arroz, papa y huevo</td>
-                <td>30 Bs</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://chipabythedozen.com/wp-content/uploads/2022/06/sopa-de-mani-boliviana.jpg" alt="Sopa de maní" width="120">
-                </td>
-                <td>Sopa de maní</td>
-                <td>Sopa tradicional con carne, papa y fideo</td>
-                <td>18 Bs</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ffN9ddxnwLZg2B8TLqtUERcb4KVDX2AttQ&s" alt="Refresco natural" width="120">
-                </td>
-                <td>Refresco natural</td>
-                <td>Limonada, mocochinchi o jugo del día</td>
-                <td>8 Bs</td>
-            </tr>
-        </tbody>
-    </table>
+<section>
+    <h2>Presentación</h2>
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/62/6e/ae/popular.jpg" width="100%">
+    <p>
+        Bienvenidos a <strong>Restaurante popular</strong>, donde cada plato sabe a hogar.
+    </p>
 </section>
 
-        <hr>
-
-        <section id="semana">
-            <h2>Menú de la Semana</h2>
-
-            <ul>
-                <li><strong>Lunes:</strong> Sopa de maní + segundo de pollo</li>
-                <li><strong>Martes:</strong> Majadito con charque</li>
-                <li><strong>Miércoles:</strong> Silpancho especial</li>
-                <li><strong>Jueves:</strong> Picante de pollo</li>
-                <li><strong>Viernes:</strong> Pique macho</li>
-                <li><strong>Sábado:</strong> Parrillada familiar</li>
-                <li><strong>Domingo:</strong> Sajta de pollo</li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="ubicacion">
-            <h2>Ubicación</h2>
-
-            <address>
-                <p>📍 Avenida Principal #123, Santa Cruz, Bolivia</p>
-                <p>📞 <a href="tel:+59170000000">+591 70707070</a></p>
-                <p>📧 <a href="mailto:contacto@popular.com">contacto@popular.com</a></p>
-                <p>🕒 Horario: Lunes a Domingo, 11:00 a 23:00</p>
-            </address>
-        </section>
-
-        <hr>
-
-        <section id="redes">
-            <h2>Redes Sociales</h2>
-            <ul>
-                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
-                <li><a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
-                <li><a href="https://wa.me/59170000000" target="_blank">WhatsApp</a></li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="clientes">
-    <h2>Clientes y Reseñas</h2>
-
-    <p><strong>Clientes frecuentes por semana:</strong> 250</p>
-    <p><strong>Calificación promedio:</strong> 4.7 / 5</p>
-
-    <table border="1">
+<section id="menu">
+    <h2>Menú de Comida</h2>
+    <table>
         <tr>
-            <td align="center">
-                <img src="https://img.freepik.com/fotos-premium/mujer-negra-creativa-enmarcando-manos-sobre-fondo-rosa_116547-95320.jpg" alt="Foto de Ana López" width="100" height="100"><br>
-                <strong>Ana López</strong><br>
-                “La comida tiene sabor casero de verdad y la atención es excelente.”
-            </td>
-
-            <td align="center">
-                <img src="https://thumbs.dreamstime.com/b/s%C3%ADmbolo-de-paz-retrato-y-hombre-asi%C3%A1tico-con-apoyo-sonrisa-confianza-en-un-fondo-estudio-azul-persona-masculina-o-cara-modelo-276097702.jpg" alt="Foto de José Martínez" width="100" height="100"><br>
-                <strong>José Martínez</strong><br>
-                “Buen precio, buena porción y ambiente familiar. Recomendado.”
-            </td>
-
-            <td align="center">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDxS7z1O-v5m552_JOS5RP_Ug3wNi0fMTr-Q&s" alt="Foto de Lucía Rojas" width="100" height="100"><br>
-                <strong>Lucía Rojas</strong><br>
-                “El majadito estaba brutal. Volvería sin pensarlo.”
-            </td>
+            <th>Foto</th>
+            <th>Plato</th>
+            <th>Precio</th>
+        </tr>
+        <tr>
+            <td><img src="https://chipabythedozen.com/wp-content/uploads/2025/09/pique-a-lo-macho.jpg" width="120"></td>
+            <td>Pique Macho</td>
+            <td>35 Bs</td>
+        </tr>
+        <tr>
+            <td><img src="https://www.cocina-boliviana.com/base/stock/Recipe/majadito-boliviano/majadito-boliviano_web.jpg.webp" width="120"></td>
+            <td>Majadito</td>
+            <td>25 Bs</td>
         </tr>
     </table>
 </section>
 
-        <hr>
+<section id="pedido">
+    <h2>📲 Haga su pedido</h2>
 
-        <section id="extras">
-            <h2>Otros Datos Interesantes</h2>
+    <form>
+        <input type="text" id="nombreCliente" placeholder="Nombre" required><br><br>
+        <input type="text" id="telefonoCliente" placeholder="Teléfono" required><br><br>
+        <input type="text" id="direccionCliente" placeholder="Dirección" required><br><br>
 
-            <ul>
-                <li><strong>Especialidad:</strong> Comida típica boliviana</li>
-                <li><strong>Capacidad:</strong> 60 personas</li>
-                <li><strong>Servicio a domicilio:</strong> Sí</li>
-                <li><strong>Reservas:</strong> Sí</li>
-                <li><strong>Pagos:</strong> Efectivo, QR y transferencia</li>
-                <li><strong>Promoción:</strong> 10% de descuento los martes</li>
-            </ul>
+        <textarea id="pedidoCliente" placeholder="Escriba su pedido"></textarea><br><br>
 
-            <details>
-                <summary>¿Se aceptan reservas para eventos?</summary>
-                <p>Sí, se aceptan reservas para cumpleaños, reuniones y eventos familiares.</p>
-            </details>
-
-            <details>
-                <summary>¿Hay platos vegetarianos?</summary>
-                <p>Sí, contamos con algunas opciones vegetarianas en el menú.</p>
-            </details>
-        </section>
-
-        <hr>
-
-        <section id="pedido">
-    <h2>Haga su pedido</h2>
-
-    <form id="formPedido">
-        <label for="nombreCliente">Nombre:</label><br>
-        <input type="text" id="nombreCliente" required><br><br>
-
-        <label for="telefonoCliente">Teléfono:</label><br>
-        <input type="text" id="telefonoCliente" required><br><br>
-
-        <label for="direccionCliente">Dirección:</label><br>
-        <input type="text" id="direccionCliente" required><br><br>
-
-        <label for="pedidoCliente">Pedido:</label><br>
-        <textarea id="pedidoCliente" rows="5" cols="40" required></textarea><br><br>
-
-        <label for="pagoCliente">Método de pago:</label><br>
-        <select id="pagoCliente" required>
-            <option value="">Seleccione una opción</option>
-            <option value="Efectivo">Efectivo</option>
-            <option value="Transferencia">Transferencia</option>
-            <option value="QR">QR</option>
+        <select id="pagoCliente">
+            <option value="">Método de pago</option>
+            <option>Efectivo</option>
+            <option>QR</option>
         </select><br><br>
 
-        <button type="button" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+        <button type="button" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
     </form>
 </section>
+
+</main>
+
+<footer>
+    <p>© 2026 - Restaurante popular</p>
+</footer>
 
 <script>
 function enviarWhatsApp() {
@@ -256,26 +215,17 @@ function enviarWhatsApp() {
     let pedido = document.getElementById("pedidoCliente").value;
     let pago = document.getElementById("pagoCliente").value;
 
-    let mensaje = "Hola, quiero hacer un pedido:%0A%0A" +
-                  "Nombre: " + nombre + "%0A" +
-                  "Teléfono: " + telefono + "%0A" +
-                  "Dirección: " + direccion + "%0A" +
-                  "Pedido: " + pedido + "%0A" +
-                  "Método de pago: " + pago;
+    let mensaje = `Hola, quiero hacer un pedido:
+Nombre: ${nombre}
+Teléfono: ${telefono}
+Dirección: ${direccion}
+Pedido: ${pedido}
+Pago: ${pago}`;
 
-    let numeroWhatsApp = "59177302270";
-    let url = "https://wa.me/" + numeroWhatsApp + "?text=" + mensaje;
-
+    let url = "https://wa.me/59177302270?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 }
 </script>
-
-    </main>
-
-    <footer>
-        <hr>
-        <p>© 2026 - Restaurante popular</p>
-    </footer>
 
 </body>
 </html>
