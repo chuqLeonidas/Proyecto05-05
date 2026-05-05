@@ -1,210 +1,305 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restaurante popular</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Popular | Sabor Tradicional</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f5f5f5;
-    color: #333;
-}
+    <style>
+        :root {
+            --primario: #ff5722;
+            --secundario: #ff9800;
+            --oscuro: #2d3436;
+            --blanco: #ffffff;
+            --gris-claro: #f8f9fa;
+        }
 
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #ff5722, #ff9800);
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: 0.3s;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #fdfdfd;
+            color: var(--oscuro);
+            line-height: 1.6;
+        }
 
-nav a:hover {
-    color: #000;
-}
+        /* HEADER Y NAVEGACIÓN */
+        header {
+            background: linear-gradient(135deg, var(--primario), var(--secundario));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-/* SECCIONES */
-section {
-    background: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: aparecer 0.8s ease;
-}
+        nav {
+            background: var(--blanco);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
 
-@keyframes aparecer {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+        nav a {
+            color: var(--oscuro);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
 
-/* IMÁGENES */
-img {
-    border-radius: 10px;
-    transition: transform 0.3s;
-}
+        nav a:hover {
+            color: var(--primario);
+        }
 
-img:hover {
-    transform: scale(1.05);
-}
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-/* TABLA */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
+        section {
+            background: var(--blanco);
+            margin: 40px 0;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
 
-th {
-    background: #ff5722;
-    color: white;
-    padding: 10px;
-}
+        h2 {
+            color: var(--primario);
+            border-bottom: 3px solid var(--secundario);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
 
-td {
-    padding: 10px;
-}
+        /* GRID DE MENÚ */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-tr:nth-child(even) {
-    background: #f2f2f2;
-}
+        .plato-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+        }
 
-/* BOTONES */
-button {
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
+        .plato-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
 
-button:hover {
-    background: #1ebe5d;
-    transform: scale(1.05);
-}
+        .plato-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-/* FORM */
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
+        .precio {
+            font-weight: bold;
+            color: var(--primario);
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 10px;
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #333;
-    color: white;
-}
+        /* FORMULARIO */
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-/* TARJETAS DE RESEÑAS */
-#clientes td {
-    background: #fff3e0;
-    border-radius: 10px;
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
 
-/* LISTAS */
-ul li {
-    margin: 8px 0;
-}
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
 
-/* DETAILS */
-details {
-    background: #eee;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-</style>
+        button {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
+        button:hover {
+            background: #1ebe5d;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* MAPA */
+        .map-responsive {
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+            border-radius: 15px;
+        }
+        .map-responsive iframe {
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--oscuro);
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav a {
+                margin: 0 5px;
+                font-size: 0.7rem;
+            }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <h1>🍽️ Restaurante popular</h1>
-    <p>Comida tradicional, ambiente familiar y sabor que no perdona.</p>
-
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#historia">Historia</a>
-        <a href="#menu">Menú</a>
-        <a href="#semana">Semana</a>
-        <a href="#ubicacion">Ubicación</a>
-        <a href="#pedido">Pedido</a>
-    </nav>
+    <h1>🍽️ Restaurante Popular</h1>
+    <p>Comida tradicional, ambiente familiar y sabor boliviano auténtico.</p>
 </header>
 
-<main id="inicio">
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#menu">Menú</a>
+    <a href="#semana">Semana</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#pedido">Pedidos</a>
+</nav>
 
-<section>
-    <h2>Presentación</h2>
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/62/6e/ae/popular.jpg" width="100%">
-    <p>
-        Bienvenidos a <strong>Restaurante popular</strong>, donde cada plato sabe a hogar.
-    </p>
-</section>
+<div class="container">
 
-<section id="menu">
-    <h2>Menú de Comida</h2>
-    <table>
-        <tr>
-            <th>Foto</th>
-            <th>Plato</th>
-            <th>Precio</th>
-        </tr>
-        <tr>
-            <td><img src="https://chipabythedozen.com/wp-content/uploads/2025/09/pique-a-lo-macho.jpg" width="120"></td>
-            <td>Pique Macho</td>
-            <td>35 Bs</td>
-        </tr>
-        <tr>
-            <td><img src="https://www.cocina-boliviana.com/base/stock/Recipe/majadito-boliviano/majadito-boliviano_web.jpg.webp" width="120"></td>
-            <td>Majadito</td>
-            <td>25 Bs</td>
-        </tr>
-    </table>
-</section>
+    <section id="inicio">
+        <h2>Nuestra Historia</h2>
+        <p>Desde 1990, el <strong>Restaurante Popular</strong> ha sido el punto de encuentro para las familias que buscan el sabor real de nuestra tierra. Lo que empezó como un pequeño puesto de mercado, hoy es una tradición en la ciudad.</p>
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/62/6e/ae/popular.jpg" width="100%" style="border-radius: 15px;">
+    </section>
 
-<section id="pedido">
-    <h2>📲 Haga su pedido</h2>
+    <section id="menu">
+        <h2>Menú Especial</h2>
+        <div class="menu-grid">
+            <div class="plato-card">
+                <img src="https://chipabythedozen.com/wp-content/uploads/2025/09/pique-a-lo-macho.jpg" alt="Pique Macho">
+                <h3>Pique Macho</h3>
+                <p>Carne picada, salchicha, papas fritas y locoto.</p>
+                <span class="precio">35 Bs</span>
+            </div>
+            <div class="plato-card">
+                <img src="https://www.cocina-boliviana.com/base/stock/Recipe/majadito-boliviano/majadito-boliviano_web.jpg.webp" alt="Majadito">
+                <h3>Majadito</h3>
+                <p>Arroz con charque, huevo frito y plátano.</p>
+                <span class="precio">25 Bs</span>
+            </div>
+            <div class="plato-card">
+                <img src="https://www.cocina-boliviana.com/base/stock/Recipe/silpancho-cochabambino/silpancho-cochabambino_web.jpg.webp" alt="Silpancho">
+                <h3>Silpancho</h3>
+                <p>Carne apanada con arroz, papa y ensalada.</p>
+                <span class="precio">30 Bs</span>
+            </div>
+        </div>
+    </section>
 
-    <form>
-        <input type="text" id="nombreCliente" placeholder="Nombre" required><br><br>
-        <input type="text" id="telefonoCliente" placeholder="Teléfono" required><br><br>
-        <input type="text" id="direccionCliente" placeholder="Dirección" required><br><br>
+    <section id="semana">
+        <h2>Menú de la Semana</h2>
+        <p>Cada día un sabor diferente:</p>
+        <ul>
+            <li><strong>Lunes:</strong> Fricasé de cerdo.</li>
+            <li><strong>Martes:</strong> Chicharrón de pollo.</li>
+            <li><strong>Miércoles:</strong> Sopa de Maní y Picante de Pollo.</li>
+            <li><strong>Jueves:</strong> Falso Conejo.</li>
+            <li><strong>Viernes:</strong> Keperí al horno.</li>
+        </ul>
+    </section>
 
-        <textarea id="pedidoCliente" placeholder="Escriba su pedido"></textarea><br><br>
+    <section id="ubicacion">
+        <h2>Visítanos</h2>
+        <p>📍 Calle Los Aromas #123, Zona Central.</p>
+        <div class="map-responsive">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15194.846505030232!2d-63.1895695!3d-17.781358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e84360e227e3%3A0x7d01878d65a88f7b!2sSanta%20Cruz%20de%20la%20Sierra!5e0!3m2!1ses!2sbo!4v1700000000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
 
-        <select id="pagoCliente">
-            <option value="">Método de pago</option>
-            <option>Efectivo</option>
-            <option>QR</option>
-        </select><br><br>
+    <section id="pedido">
+        <h2>📲 Haz tu pedido</h2>
+        <p>Completa los datos y te redirigiremos a nuestro WhatsApp oficial.</p>
 
-        <button type="button" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-    </form>
-</section>
+        <form id="formPedido">
+            <div class="form-group">
+                <label>Tu Nombre</label>
+                <input type="text" id="nombreCliente" placeholder="Ej. Juan Pérez" required>
+            </div>
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" id="telefonoCliente" placeholder="Ej. 77012345" required>
+            </div>
+            <div class="form-group">
+                <label>Dirección de Entrega</label>
+                <input type="text" id="direccionCliente" placeholder="Barrio, Calle y Nro de casa" required>
+            </div>
+            <div class="form-group">
+                <label>¿Qué deseas pedir?</label>
+                <textarea id="pedidoCliente" rows="3" placeholder="Ej. 2 Piques Macho y una Coca Cola de 2L"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Método de Pago</label>
+                <select id="pagoCliente">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="QR">Transferencia / QR</option>
+                </select>
+            </div>
 
-</main>
+            <button type="button" onclick="enviarWhatsApp()">
+                <span>🚀 Enviar Pedido por WhatsApp</span>
+            </button>
+        </form>
+    </section>
+
+</div>
 
 <footer>
-    <p>© 2026 - Restaurante popular</p>
+    <p>© 2026 - Restaurante Popular</p>
+    <p>¡Buen provecho!</p>
 </footer>
 
 <script>
@@ -215,12 +310,20 @@ function enviarWhatsApp() {
     let pedido = document.getElementById("pedidoCliente").value;
     let pago = document.getElementById("pagoCliente").value;
 
-    let mensaje = `Hola, quiero hacer un pedido:
-Nombre: ${nombre}
-Teléfono: ${telefono}
-Dirección: ${direccion}
-Pedido: ${pedido}
-Pago: ${pago}`;
+    if(nombre === "" || telefono === "" || direccion === "") {
+        alert("Por favor, completa los datos básicos (Nombre, Teléfono y Dirección)");
+        return;
+    }
+
+    let mensaje = `*NUEVO PEDIDO - RESTAURANTE POPULAR*
+------------------------------
+👤 *Cliente:* ${nombre}
+📞 *Teléfono:* ${telefono}
+📍 *Dirección:* ${direccion}
+🍴 *Pedido:* ${pedido}
+💵 *Pago:* ${pago}
+------------------------------
+_Enviado desde el sitio web_`;
 
     let url = "https://wa.me/59177302270?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
